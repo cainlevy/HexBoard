@@ -31,11 +31,9 @@ class GameViewController: UIViewController {
         scnView.backgroundColor = UIColor.blackColor()
         
         // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
-        let gestureRecognizers = NSMutableArray()
-        gestureRecognizers.addObject(tapGesture)
-        gestureRecognizers.addObjectsFromArray(scnView.gestureRecognizers)
-        scnView.gestureRecognizers = gestureRecognizers
+        scnView.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: "handleTap:")
+        )
     }
     
     func establishScene() -> SCNScene{
