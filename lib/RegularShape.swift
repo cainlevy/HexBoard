@@ -25,4 +25,15 @@ struct RegularShape {
             )
         }
     }
+
+    var midpoints: [CGPoint] {
+        return sides.times().map{ (i) in
+            var p1 = self.points[i]
+            var p2 = self.points[(i + 1) % self.sides]
+            return CGPoint(
+                x: (p2.x + p1.x) / 2,
+                y: (p2.y + p1.y) / 2
+            )
+        }
+    }
 }

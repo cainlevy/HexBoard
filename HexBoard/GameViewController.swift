@@ -61,18 +61,9 @@ class GameViewController: UIViewController {
         ambientLightNode.light.type = SCNLightTypeAmbient
         ambientLightNode.light.color = UIColor.darkGrayColor()
         scene.rootNode.addChildNode(ambientLightNode)
-        
-        let hex = RegularShape(sides: 6)
-        var last = Tile(shape: hex, center: CGPoint(x: -1, y: 0))
-        scene.rootNode.addChildNode(last.node)
-        2.times {
-            last = Tile(shape: hex, center: CGPoint(
-                x: last.center.x + last.radius * 2 - last.shape.points[1].x,
-                y: last.center.y + last.shape.points[1].y
-            ))
-            scene.rootNode.addChildNode(last.node)
-        }
-        
+
+        scene.rootNode.addChildNode(HexBoard(rings: 2).node)
+
         return scene
     }
     

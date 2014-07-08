@@ -15,6 +15,7 @@
 		99A5290E1969B0DE002A7235 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99A5290D1969B0DE002A7235 /* Images.xcassets */; };
 		99A5291A1969B0DE002A7235 /* HexBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A529191969B0DE002A7235 /* HexBoardTests.swift */; };
 		99D9CA4C196A70A400E801A9 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9CA4B196A70A400E801A9 /* Tile.swift */; };
+		99DA3D75196BB840001B7339 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DA3D74196BB840001B7339 /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		99A529181969B0DE002A7235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99A529191969B0DE002A7235 /* HexBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexBoardTests.swift; sourceTree = "<group>"; };
 		99D9CA4B196A70A400E801A9 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		99DA3D74196BB840001B7339 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				99A5290A1969B0DE002A7235 /* Main.storyboard */,
 				99A5290D1969B0DE002A7235 /* Images.xcassets */,
 				99A529041969B0DE002A7235 /* Supporting Files */,
+				99DA3D74196BB840001B7339 /* Board.swift */,
 			);
 			path = HexBoard;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			files = (
 				99471A49196BABCF00CEE9A2 /* extensions.swift in Sources */,
 				99471A47196BABAE00CEE9A2 /* RegularShape.swift in Sources */,
+				99DA3D75196BB840001B7339 /* Board.swift in Sources */,
 				99A529091969B0DE002A7235 /* GameViewController.swift in Sources */,
 				99A529071969B0DE002A7235 /* AppDelegate.swift in Sources */,
 				99D9CA4C196A70A400E801A9 /* Tile.swift in Sources */,
