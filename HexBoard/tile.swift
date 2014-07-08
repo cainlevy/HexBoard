@@ -12,7 +12,7 @@ import SceneKit
 class Tile {
     let shape: RegularShape
     let center: CGPoint
-    let radius = 1.0
+    let radius: CGFloat = 1.0
     
     var border: UIBezierPath {
         var path = UIBezierPath()

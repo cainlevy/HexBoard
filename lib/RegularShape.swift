@@ -16,7 +16,7 @@ struct RegularShape {
         return (2 * pi) / Double(sides)
     }
     
-    var points: CGPoint[] {
+    var points: [CGPoint] {
         return sides.times().map{ (i) in
             var degrees = Double(i) * self.angle
             return CGPoint(

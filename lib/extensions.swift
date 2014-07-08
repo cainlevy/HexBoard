@@ -12,15 +12,15 @@ let pi = 3.14159 // TODO: where is this supposed to come from?
 
 extension Int {
     func times(fn: () -> ()) {
-        for i in 0..self {
+        for i in 0..<self {
             fn()
         }
     }
-    
+
     // TODO: surely this can be easier
-    func times() -> Int[] {
-        var arr = Int[]()
-        for i in 0..self {
+    func times() -> [Int] {
+        var arr = [Int]()
+        for i in 0..<self {
             arr += i
         }
         return arr
@@ -28,7 +28,7 @@ extension Int {
 }
 
 extension Double {
-    func times() -> Int[] {
+    func times() -> [Int] {
         return Int(self).times()
     }
 }
