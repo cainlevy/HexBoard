@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99471A47196BABAE00CEE9A2 /* RegularShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99471A46196BABAE00CEE9A2 /* RegularShape.swift */; };
+		99471A49196BABCF00CEE9A2 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99471A48196BABCF00CEE9A2 /* extensions.swift */; };
 		99A529071969B0DE002A7235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A529061969B0DE002A7235 /* AppDelegate.swift */; };
 		99A529091969B0DE002A7235 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A529081969B0DE002A7235 /* GameViewController.swift */; };
 		99A5290C1969B0DE002A7235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A5290A1969B0DE002A7235 /* Main.storyboard */; };
 		99A5290E1969B0DE002A7235 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99A5290D1969B0DE002A7235 /* Images.xcassets */; };
 		99A5291A1969B0DE002A7235 /* HexBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A529191969B0DE002A7235 /* HexBoardTests.swift */; };
-		99A5292A1969E10B002A7235 /* RegularShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A529291969E10B002A7235 /* RegularShape.swift */; };
 		99D9CA4C196A70A400E801A9 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9CA4B196A70A400E801A9 /* Tile.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99471A46196BABAE00CEE9A2 /* RegularShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularShape.swift; sourceTree = "<group>"; };
+		99471A48196BABCF00CEE9A2 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		99A529011969B0DE002A7235 /* HexBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A529051969B0DE002A7235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99A529061969B0DE002A7235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		99A529131969B0DE002A7235 /* HexBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A529181969B0DE002A7235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99A529191969B0DE002A7235 /* HexBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexBoardTests.swift; sourceTree = "<group>"; };
-		99A529291969E10B002A7235 /* RegularShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegularShape.swift; path = ../RegularShape.swift; sourceTree = "<group>"; };
 		99D9CA4B196A70A400E801A9 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,9 +60,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99471A45196BABAE00CEE9A2 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				99471A46196BABAE00CEE9A2 /* RegularShape.swift */,
+				99471A48196BABCF00CEE9A2 /* extensions.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		99A528F81969B0DE002A7235 = {
 			isa = PBXGroup;
 			children = (
+				99471A45196BABAE00CEE9A2 /* lib */,
 				99A529031969B0DE002A7235 /* HexBoard */,
 				99A529161969B0DE002A7235 /* HexBoardTests */,
 				99A529021969B0DE002A7235 /* Products */,
@@ -79,7 +91,6 @@
 		99A529031969B0DE002A7235 /* HexBoard */ = {
 			isa = PBXGroup;
 			children = (
-				99A529291969E10B002A7235 /* RegularShape.swift */,
 				99A529061969B0DE002A7235 /* AppDelegate.swift */,
 				99A529081969B0DE002A7235 /* GameViewController.swift */,
 				99D9CA4B196A70A400E801A9 /* Tile.swift */,
@@ -214,9 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99471A49196BABCF00CEE9A2 /* extensions.swift in Sources */,
+				99471A47196BABAE00CEE9A2 /* RegularShape.swift in Sources */,
 				99A529091969B0DE002A7235 /* GameViewController.swift in Sources */,
 				99A529071969B0DE002A7235 /* AppDelegate.swift in Sources */,
-				99A5292A1969E10B002A7235 /* RegularShape.swift in Sources */,
 				99D9CA4C196A70A400E801A9 /* Tile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
