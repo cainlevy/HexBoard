@@ -9,6 +9,7 @@
 import Foundation
 import SceneKit
 
+// TODO: move into class var when Swift supports
 let hexShape = RegularShape(sides: 6)
 
 class HexBoard {
