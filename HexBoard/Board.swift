@@ -9,13 +9,10 @@
 import Foundation
 import SceneKit
 
-// TODO: move into class var when Swift supports
-let hexShape = RegularShape(sides: 6)
-
 class HexBoard {
     class HexTile: Tile {
         init(center: CGPoint) {
-            super.init(shape: hexShape, center: center)
+            super.init(sides: 6, center: center)
         }
     }
 
@@ -30,9 +27,11 @@ class HexBoard {
     }
 
     init(rings: Int) {
+        var origin = CGPointZero
+
         // begin with origin tile
         tiles = [
-            HexTile(center: CGPoint(x: 0, y: 0))
+            HexTile(center: origin)
         ]
 
         // add rings
@@ -40,11 +39,11 @@ class HexBoard {
             // tiles per ring
             for i in 0..<6 {
                 // find center from origin tile
-                var midpoint = hexShape.midpoints[i]
+                var midpoint = tiles[0].shape.midpoints[i]
                 var lengths = CGFloat(2 * ring)
                 tiles.append(HexTile(center: CGPoint(
-                    x: tiles[0].center.x + midpoint.x * lengths,
-                    y: tiles[0].center.y + midpoint.y * lengths
+                    x: origin.x + midpoint.x * lengths,
+                    y: origin.y + midpoint.y * lengths
                 )))
             }
         }

@@ -11,21 +11,12 @@ import SceneKit
 
 class Tile {
     let shape: RegularShape
-    let center: CGPoint
-    let radius: CGFloat = 1.0
     
     var border: UIBezierPath {
         var path = UIBezierPath()
-        path.moveToPoint(CGPoint(
-            x: center.x + shape.points[0].x,
-            y: center.y + shape.points[0].y
-        ))
+        path.moveToPoint(shape.points[0])
         for i in shape.points {
-            var adjustedPoint = CGPoint(
-                x: i.x + center.x,
-                y: i.y + center.y
-            )
-            path.addLineToPoint(adjustedPoint)
+            path.addLineToPoint(i)
         }
         path.closePath()
         return path
@@ -33,7 +24,7 @@ class Tile {
     
     var node: SCNNode {
         var n = SCNNode()
-        n.geometry = SCNShape(path: border, extrusionDepth: radius * 0.1)
+        n.geometry = SCNShape(path: border, extrusionDepth: shape.radius * 0.1)
         
         // create and configure a material
         let material = SCNMaterial()
@@ -45,8 +36,7 @@ class Tile {
         return n
     }
     
-    init(shape: RegularShape, center: CGPoint) {
-        self.shape  = shape
-        self.center = center
+    init(sides: Int, center: CGPoint) {
+        self.shape = RegularShape(sides: sides, center: center)
     }
 }
