@@ -10,15 +10,25 @@ import Foundation // for cos() and sin()
 import UIKit
 
 struct RegularShape {
-    var sides: Int
-    var points: [CGPoint]
+    let sides: Int
+    let radius: CGFloat
+    let center: CGPoint
 
-    var radius: CGFloat
-    var center: CGPoint
 
-    // TODO: memoize?
-    var midpoints: [CGPoint] {
-        return sides.times().map{ (i) in
+    @lazy var points: [CGPoint] = {
+        // determine vertices by assuming a regular angle
+        var angle = (2 * pi) / Double(self.sides)
+        return self.sides.times().map{ (i) in
+            var degrees = Double(i) * angle
+            return CGPoint(
+                x: (CGFloat(cos(degrees)) + self.center.x) * self.radius,
+                y: (CGFloat(sin(degrees)) + self.center.y) * self.radius
+            )
+        }
+    }()
+
+    @lazy var midpoints: [CGPoint] = {
+        return self.sides.times().map{ (i) in
             var p1 = self.points[i]
             var p2 = self.points[(i + 1) % self.sides]
             return CGPoint(
@@ -26,7 +36,7 @@ struct RegularShape {
                 y: (p2.y + p1.y) / 2
             )
         }
-    }
+    }()
 
     // calculates a shape with equal sides and inner angles
     // - radius: defaults to a single unit (1.0)
@@ -35,15 +45,5 @@ struct RegularShape {
         self.sides  = sides
         self.radius = radius
         self.center = center
-
-        // determine vertices by assuming a regular angle
-        var angle = (2 * pi) / Double(sides)
-        self.points = sides.times().map{ (i) in
-            var degrees = Double(i) * angle
-            return CGPoint(
-                x: (CGFloat(cos(degrees)) + center.x) * radius,
-                y: (CGFloat(sin(degrees)) + center.y) * radius
-            )
-        }
     }
 }

@@ -18,13 +18,13 @@ class HexBoard {
 
     var tiles: [HexTile]
 
-    var node: SCNNode {
-        var n = SCNNode()
-        for t in tiles {
+    @lazy var node: SCNNode = {
+        let n = SCNNode()
+        for t in self.tiles {
             n.addChildNode(t.node)
         }
         return n
-    }
+    }()
 
     init(rings: Int) {
         var origin = CGPointZero
