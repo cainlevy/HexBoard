@@ -9,15 +9,9 @@
 import Foundation
 import SceneKit
 
-class HexBoard {
-    class HexTile: Tile {
-        init(center: CGPoint) {
-            super.init(sides: 6, center: center)
-        }
-    }
-
-    var tiles: [HexTile]
-    var rings: [[HexTile]]
+class Board {
+    var tiles: [Tile]
+    var rings: [[Tile]]
 
     @lazy var node: SCNNode = {
         let n = SCNNode()
@@ -27,16 +21,26 @@ class HexBoard {
         return n
     }()
 
+    init() {
+        tiles = []
+        rings = []
+    }
+}
+
+class HexBoard: Board {
+    class HexTile: Tile {
+        init(center: CGPoint) {
+            super.init(sides: 6, center: center)
+        }
+    }
+
     init(size: Int) {
-        let origin = CGPointZero
+        super.init()
 
         // begin with origin tile
-        tiles = [
-            HexTile(center: origin)
-        ]
-        rings = [
-            [tiles[0]]
-        ]
+        let origin = CGPointZero
+        tiles.append(HexTile(center: origin))
+        rings.append([tiles[0]])
 
         // add rings
         for r in 1...size {
