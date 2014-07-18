@@ -17,6 +17,7 @@ class HexBoard {
     }
 
     var tiles: [HexTile]
+    var rings: [[HexTile]]
 
     @lazy var node: SCNNode = {
         let n = SCNNode()
@@ -26,26 +27,36 @@ class HexBoard {
         return n
     }()
 
-    init(rings: Int) {
-        var origin = CGPointZero
+    init(size: Int) {
+        let origin = CGPointZero
 
         // begin with origin tile
         tiles = [
             HexTile(center: origin)
         ]
+        rings = [
+            [tiles[0]]
+        ]
 
         // add rings
-        for ring in 1...rings {
-            // tiles per ring
-            for i in 0..<6 {
-                // find center from origin tile
-                var midpoint = tiles[0].shape.midpoints[i]
-                var lengths = CGFloat(2 * ring)
-                tiles.append(HexTile(center: CGPoint(
-                    x: origin.x + midpoint.x * lengths,
-                    y: origin.y + midpoint.y * lengths
-                )))
+        for r in 1...size {
+            // gather neighboring points
+            var points = [CGPoint]()
+            for t in rings[r - 1] {
+                // all neighboring points of extension from the previous ring
+                points += t.shape.midpoints.map{ mp in
+                    return CGPoint(
+                        x: 2 * mp.x - t.shape.center.x,
+                        y: 2 * mp.y - t.shape.center.y
+                    )
+                // that are not already a tile
+                }
             }
+            points = unique(points).filter{ p in
+                self.tiles.any{ $0.shape.center != p }
+            }
+            rings.append(points.map{ HexTile(center: $0) })
+            tiles += rings[r]
         }
     }
 }

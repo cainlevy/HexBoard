@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 let pi = 3.14159 // TODO: where is this supposed to come from?
 
@@ -33,3 +34,31 @@ extension Double {
     }
 }
 
+func unique<T: Hashable>(array: [T]) -> [T] {
+    var set = [T: Bool]()
+    for i in array { set[i] = true }
+    return Array(set.keys)
+}
+
+extension CGPoint: Hashable {
+    var hashValue: Int {
+        return Int(x) + Int(y)
+    }
+}
+
+extension CGPoint {
+    func distanceTo(other: CGPoint) -> CGFloat {
+        return sqrt(pow(x - other.x, 2) + pow(y - other.y, 2))
+    }
+}
+
+extension Array {
+    func any(decider: (T) -> Bool) -> Bool {
+        for i in self {
+            if decider(i) {
+                return true
+            }
+        }
+        return false
+    }
+}

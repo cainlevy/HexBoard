@@ -62,7 +62,7 @@ class GameViewController: UIViewController {
         ambientLightNode.light.color = UIColor.darkGrayColor()
         scene.rootNode.addChildNode(ambientLightNode)
 
-        scene.rootNode.addChildNode(HexBoard(rings: 2).node)
+        scene.rootNode.addChildNode(HexBoard(size: 2).node)
 
         return scene
     }
