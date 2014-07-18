@@ -18,8 +18,7 @@ extension Int {
         }
     }
 
-    // TODO: surely this can be easier
-    func times() -> [Int] {
+    var times: [Int] {
         var arr = [Int]()
         for i in 0..<self {
             arr += i
@@ -29,8 +28,8 @@ extension Int {
 }
 
 extension Double {
-    func times() -> [Int] {
-        return Int(self).times()
+    var times: [Int] {
+        return Int(self).times
     }
 }
 

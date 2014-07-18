@@ -18,7 +18,7 @@ struct RegularShape {
     @lazy var points: [CGPoint] = {
         // determine vertices by assuming a regular angle
         var angle = (2 * pi) / Double(self.sides)
-        return self.sides.times().map{ (i) in
+        return self.sides.times.map{ (i) in
             var degrees = Double(i) * angle
             return CGPoint(
                 x: (CGFloat(cos(degrees)) + self.center.x) * self.radius,
@@ -28,7 +28,7 @@ struct RegularShape {
     }()
 
     @lazy var midpoints: [CGPoint] = {
-        return self.sides.times().map{ (i) in
+        return self.sides.times.map{ (i) in
             var p1 = self.points[i]
             var p2 = self.points[(i + 1) % self.sides]
             return CGPoint(
