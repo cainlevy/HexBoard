@@ -60,4 +60,27 @@ extension Array {
         }
         return false
     }
+
+    func none(decider: (T) -> Bool) -> Bool {
+        return !any(decider)
+    }
+
+    func all(decider: (T) -> Bool) -> Bool {
+        for i in self {
+            if !decider(i) {
+                return false
+            }
+        }
+        return true
+    }
+}
+
+func round(x: Double, precision: Int) -> Double {
+    let m = pow(10, Double(precision))
+    return round(x * m) / m
+}
+
+func round(x: Float, precision: Int) -> Float {
+    let m = pow(10, Float(precision))
+    return round(x * m) / m
 }

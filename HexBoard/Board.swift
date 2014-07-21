@@ -50,14 +50,14 @@ class HexBoard: Board {
                 // all neighboring points of extension from the previous ring
                 points += t.shape.midpoints.map{ mp in
                     return CGPoint(
-                        x: 2 * mp.x - t.shape.center.x,
-                        y: 2 * mp.y - t.shape.center.y
+                        x: round(2 * mp.x - t.shape.center.x, 3),
+                        y: round(2 * mp.y - t.shape.center.y, 3)
                     )
-                // that are not already a tile
                 }
             }
+            // that are not already a tile
             points = unique(points).filter{ p in
-                self.tiles.any{ $0.shape.center != p }
+                self.tiles.none{ $0.shape.center == p }
             }
             rings.append(points.map{ HexTile(center: $0) })
             tiles += rings[r]
