@@ -28,8 +28,8 @@ class Tile {
         
         // create and configure a material
         let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: "texture")
-        material.specular.contents = UIColor.blueColor()
+        material.diffuse.contents = Element.rand().color
+        material.specular.contents = UIColor.whiteColor()
         material.locksAmbientWithDiffuse = true
         n.geometry.firstMaterial = material
         
@@ -38,5 +38,21 @@ class Tile {
     
     init(sides: Int, center: CGPoint) {
         self.shape = RegularShape(sides: sides, center: center)
+    }
+
+    struct Element {
+        let color: UIColor
+
+        static let all = [
+            "earth": Tile.Element(color: UIColor.brownColor()),
+            "water": Tile.Element(color: UIColor.blueColor()),
+            "fire":  Tile.Element(color: UIColor.redColor()),
+            "air":   Tile.Element(color: UIColor.grayColor())
+        ]
+
+        static func rand() -> Element {
+            let elements = Array(all.values)
+            return elements[random() % elements.count]
+        }
     }
 }
